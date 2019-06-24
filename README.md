@@ -1,50 +1,30 @@
-# Simple-SSD-Pytorch
 
-This repo contains code for training SSD from scratch and performing Inference. 
 
-Entire SSD code is inside a single notebook . This notebook is build for Education and understanding purpose.
+## SSD from scratch
 
-## Dataset
+The following model has been trained on google colab from scratch:
 
-We are using pascal voc 2007 dataset
+1. [SSD with Multi Box Loss](<https://gitlab.com/entirety.ai/meetup-intuition-to-implementation/blob/master/Phase%20-%202/SSD/SSD_full.ipynb>)
 
-### Table of Content
-
-1. Import statements
-2. Download the PASCAl VOC 2007 Dataset
-3. Transformations
-
-   1. Horizontal Flip
-
-   2. Resize
-
-   3. Photometric Distortion
-4. Dataset
-5. Visualization of Augmentation and Original
-6. Utility Function
-    	1. Cordinate conversion (Encoding-Decoding)
-    	2. Jacard Overlap(IoU)
-    	3. Average Meter (Calculating running average)
-    	4. Save Checkpoint
-    	5. Decimate
-
-7. Model Architecture
-8. VGG Base
-9. AuxiliaryConvolutions
-10. Prediction Convolution
-11. SSD 300
-12. MultiBox Loss Function
-13. Training
-     	1. Learning Parameters
-     	2. DataLoader
-     	3. Train method
-     	4. Validate method
-     	5. Actual training
-14. Detection
-15. Inference
+2. [SSD with Focal Loss](<https://gitlab.com/entirety.ai/meetup-intuition-to-implementation/blob/master/Phase%20-%202/SSD/Focal_Loss_SSD.ipynb>)
 
 
 
-## Result
+###  Summary
 
-Model is currently in training mode once training is done results will be updated
+| Model                                                        | epochs | Change in train loss | Loss Function                    | mAP         | weights                                                      |
+| ------------------------------------------------------------ | ------ | -------------------- | -------------------------------- | ----------- | ------------------------------------------------------------ |
+| [SSD with Multi Box Loss](<https://gitlab.com/entirety.ai/meetup-intuition-to-implementation/blob/master/Phase%20-%202/SSD/SSD_full.ipynb>) | 160    | 12.853 -> 3.0090     | MultiBox Loss with Cross Entropy | 58.1        | [Google drive](https://drive.google.com/open?id=1-6NBJ2BNi1F3-xnoSgvIOl74U2yspMem) |
+| [SSD with Focal Loss](<https://gitlab.com/entirety.ai/meetup-intuition-to-implementation/blob/master/Phase%20-%202/SSD/Focal_Loss_SSD.ipynb>) | 175    | 2.5304 -> 0.803      | MultiBox Loss with Focal Loss    | In progress | [Google drive](https://drive.google.com/open?id=1-56TBgCEIHhtCtdKOXH5yP1_do14F38w) |
+
+
+
+
+
+### TODO
+
+- Run for 300 epochs to match to research paper results.
+- Compare SSD results for different Loss Functions.
+- Finetune the model using VOC 2012 dataset
+- Play with Batch Norm and Dropout in Auxiliary Convolution
+- Multi-GPU training
